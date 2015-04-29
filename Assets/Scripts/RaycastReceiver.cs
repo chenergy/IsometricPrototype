@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
-using TouchControl;
 
 public class RaycastReceiver : MonoBehaviour
 {
-	public delegate void RaycastEvent ();
-	public event RaycastEvent OnRaycastHit;
+	public delegate void RaycastEvent (GameObject source);
+	public event RaycastEvent OnRaycastUp;
+	public event RaycastEvent OnRaycastDrag;
 
 	// Use this for initialization
-	void Start ()
+	/*void Start ()
 	{
 	
 	}
@@ -17,11 +18,18 @@ public class RaycastReceiver : MonoBehaviour
 	void Update ()
 	{
 	
+	}*/
+
+
+	public void OnRaycastUpTouch (PointerEventData p, GameObject gobj){
+		if (this.OnRaycastUp != null)
+			this.OnRaycastUp (gobj);
 	}
 
-	public void OnHit (TouchInfo t){
-		if (this.OnRaycastHit != null)
-			this.OnRaycastHit ();
+
+	public void OnRaycastDragTouch (PointerEventData p, GameObject gobj){
+		if (this.OnRaycastDrag != null)
+			this.OnRaycastDrag (gobj);
 	}
 }
 

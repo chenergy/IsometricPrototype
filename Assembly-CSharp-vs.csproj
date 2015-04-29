@@ -50,9 +50,8 @@
      <Compile Include="Assets\Scripts\RaycastReceiver.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileGenerator.cs" />
-     <Compile Include="Assets\Scripts\TouchEvents\TouchDrag.cs" />
-     <Compile Include="Assets\Scripts\TouchEvents\TouchInfo.cs" />
-     <Compile Include="Assets\Scripts\TouchEvents\TouchListener.cs" />
+     <Compile Include="Assets\Scripts\TouchDrag.cs" />
+     <Compile Include="Assets\Scripts\TouchListener.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity5/Unity5.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

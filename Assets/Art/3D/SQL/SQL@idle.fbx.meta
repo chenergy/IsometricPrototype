@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: d0229048667774003ad2e8a035245091
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: 1st Leg
+    100002: 1st Lleg
+    100004: 1st_Lleg
+    100006: 1st_Rleg
+    100008: 2nd Leg
+    100010: 2nd Leg (2)
+    100012: 2nd_Lleg
+    100014: 2nd_Rleg
+    100016: 3rd_Lleg (2)
+    100018: 3rd_RLeg
+    100020: 3rd_Rleg
+    100022: 3rd_RLeg (2)
+    100024: 4TH_Lleg (2)
+    100026: 4TH_Rleg
+    100028: 4th_RLeg
+    100030: 4th_RLeg (2)
+    100032: Breath
+    100034: IK Up Vector
+    100036: IK Up Vector (2)
+    100038: IK Up Vector (3)
+    100040: IK Up Vector (4)
+    100042: IK Up Vector (5)
+    100044: IK Up Vector (6)
+    100046: IK Up Vector (8)
+    100048: IK Up Vector (9)
+    100050: Joint_Body_End
+    100052: Joint_Body_Mid
+    100054: Joint_Body_Upper
+    100056: Joint_FullBody
+    100058: Joint_Head
+    100060: Joint_Neck
+    100062: Joint_RArm1_Lower
+    100064: Joint_RArm1_Shoulder
+    100066: Joint_RArm1_Upper
+    100068: Joint_RMandibleA
+    100070: Joint_RMandibleA (2)
+    100072: Joint_RMandibleB
+    100074: Joint_RMandibleB (2)
+    100076: Joint_RMandibleC
+    100078: Joint_RMandibleC (2)
+    100080: Rknee
+    100082: Rknee (2)
+    100084: Rknee (3)
+    100086: Rknee (4)
+    100088: Rknee (5)
+    100090: Rknee (6)
+    100092: Rknee (7)
+    100094: Rknee (8)
+    100096: Skeleton_IK Up Vector
+    100098: Skeleton_IK Up Vector (2)
+    100100: Skeleton_IK Up Vector (3)
+    100102: Skeleton_IK Up Vector (5)_IKGoal
+    100104: Skeleton_IK Up Vector (5)_IKGoal (2)
+    100106: Skeleton_IK Up Vector (7)
+    100108: Skeleton_IK Up Vector_IKGoal
+    100110: Skeleton_IK Up Vector_IKGoal (2)
+    100112: Skeleton_Joint
+    100114: Skeleton_Joint (10)
+    100116: Skeleton_Joint (11)
+    100118: Skeleton_Joint (12)
+    100120: Skeleton_Joint (15)
+    100122: Skeleton_Joint (17)
+    100124: Skeleton_Joint (18)
+    100126: Skeleton_Joint (19)
+    100128: Skeleton_Joint (2)
+    100130: Skeleton_Joint (20)
+    100132: Skeleton_Joint (21)
+    100134: Skeleton_Joint (22)
+    100136: Skeleton_Joint (29)
+    100138: Skeleton_Joint (3)
+    100140: Skeleton_Joint (30)
+    100142: Skeleton_Joint (31)
+    100144: Skeleton_Joint (4)
+    100146: Skeleton_Joint (5)
+    100148: Skeleton_Joint (6)
+    100150: Skeleton_Joint (7)
+    100152: Skeleton_Joint (8)
+    100154: Skeleton_Joint (9)
+    100156: Skeleton_Joint_LARm
+    100158: Skeleton_Joint_LARm (2)
+    100160: Skeleton_Joint_LLeg_Shoulder 1st
+    100162: Skeleton_Joint_LLeg_Shoulder 1st (2)
+    100164: Skeleton_Joint_LLeg_Shoulder 2nd
+    100166: Skeleton_Joint_LLeg_Shoulder 2nd (2)
+    100168: Skeleton_Joint_LLeg_Shoulder 3rd
+    100170: Skeleton_Joint_LLeg_Shoulder 3rd (2)
+    100172: Skeleton_Joint_LLeg_Shoulder 4th
+    100174: Skeleton_Joint_LLeg_Shoulder 4th (2)
+    100176: Skeleton_Skeleton_IK Up Vector_IKGoal
+    100178: Skeleton_Skeleton_IK Up Vector_IKGoal (3)
+    100180: Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+    100182: Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (2)
+    100184: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+    100186: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (3)
+    100188: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal
+    100190: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal (2)
+    100192: //RootNode
+    100194: SQL_LowPoly
+    100196: topMouthjoint
+    100198: World_Control
+    400000: 1st Leg
+    400002: 1st Lleg
+    400004: 1st_Lleg
+    400006: 1st_Rleg
+    400008: 2nd Leg
+    400010: 2nd Leg (2)
+    400012: 2nd_Lleg
+    400014: 2nd_Rleg
+    400016: 3rd_Lleg (2)
+    400018: 3rd_RLeg
+    400020: 3rd_Rleg
+    400022: 3rd_RLeg (2)
+    400024: 4TH_Lleg (2)
+    400026: 4TH_Rleg
+    400028: 4th_RLeg
+    400030: 4th_RLeg (2)
+    400032: Breath
+    400034: IK Up Vector
+    400036: IK Up Vector (2)
+    400038: IK Up Vector (3)
+    400040: IK Up Vector (4)
+    400042: IK Up Vector (5)
+    400044: IK Up Vector (6)
+    400046: IK Up Vector (8)
+    400048: IK Up Vector (9)
+    400050: Joint_Body_End
+    400052: Joint_Body_Mid
+    400054: Joint_Body_Upper
+    400056: Joint_FullBody
+    400058: Joint_Head
+    400060: Joint_Neck
+    400062: Joint_RArm1_Lower
+    400064: Joint_RArm1_Shoulder
+    400066: Joint_RArm1_Upper
+    400068: Joint_RMandibleA
+    400070: Joint_RMandibleA (2)
+    400072: Joint_RMandibleB
+    400074: Joint_RMandibleB (2)
+    400076: Joint_RMandibleC
+    400078: Joint_RMandibleC (2)
+    400080: Rknee
+    400082: Rknee (2)
+    400084: Rknee (3)
+    400086: Rknee (4)
+    400088: Rknee (5)
+    400090: Rknee (6)
+    400092: Rknee (7)
+    400094: Rknee (8)
+    400096: Skeleton_IK Up Vector
+    400098: Skeleton_IK Up Vector (2)
+    400100: Skeleton_IK Up Vector (3)
+    400102: Skeleton_IK Up Vector (5)_IKGoal
+    400104: Skeleton_IK Up Vector (5)_IKGoal (2)
+    400106: Skeleton_IK Up Vector (7)
+    400108: Skeleton_IK Up Vector_IKGoal
+    400110: Skeleton_IK Up Vector_IKGoal (2)
+    400112: Skeleton_Joint
+    400114: Skeleton_Joint (10)
+    400116: Skeleton_Joint (11)
+    400118: Skeleton_Joint (12)
+    400120: Skeleton_Joint (15)
+    400122: Skeleton_Joint (17)
+    400124: Skeleton_Joint (18)
+    400126: Skeleton_Joint (19)
+    400128: Skeleton_Joint (2)
+    400130: Skeleton_Joint (20)
+    400132: Skeleton_Joint (21)
+    400134: Skeleton_Joint (22)
+    400136: Skeleton_Joint (29)
+    400138: Skeleton_Joint (3)
+    400140: Skeleton_Joint (30)
+    400142: Skeleton_Joint (31)
+    400144: Skeleton_Joint (4)
+    400146: Skeleton_Joint (5)
+    400148: Skeleton_Joint (6)
+    400150: Skeleton_Joint (7)
+    400152: Skeleton_Joint (8)
+    400154: Skeleton_Joint (9)
+    400156: Skeleton_Joint_LARm
+    400158: Skeleton_Joint_LARm (2)
+    400160: Skeleton_Joint_LLeg_Shoulder 1st
+    400162: Skeleton_Joint_LLeg_Shoulder 1st (2)
+    400164: Skeleton_Joint_LLeg_Shoulder 2nd
+    400166: Skeleton_Joint_LLeg_Shoulder 2nd (2)
+    400168: Skeleton_Joint_LLeg_Shoulder 3rd
+    400170: Skeleton_Joint_LLeg_Shoulder 3rd (2)
+    400172: Skeleton_Joint_LLeg_Shoulder 4th
+    400174: Skeleton_Joint_LLeg_Shoulder 4th (2)
+    400176: Skeleton_Skeleton_IK Up Vector_IKGoal
+    400178: Skeleton_Skeleton_IK Up Vector_IKGoal (3)
+    400180: Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+    400182: Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (2)
+    400184: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+    400186: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (3)
+    400188: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal
+    400190: Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal (2)
+    400192: //RootNode
+    400194: SQL_LowPoly
+    400196: topMouthjoint
+    400198: World_Control
+    4300000: SQL_LowPoly
+    7400000: idle
+    9500000: //RootNode
+    13700000: SQL_LowPoly
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 124
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SQL_LowPoly
+        weight: 1
+      - path: World_Control
+        weight: 1
+      - path: World_Control/Joint_FullBody
+        weight: 1
+      - path: World_Control/Joint_FullBody/Breath
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Lleg (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Lleg (2)/4th_RLeg (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Lleg (2)/4th_RLeg (2)/Rknee
+          (8)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Lleg (2)/4th_RLeg (2)/Rknee
+          (8)/Skeleton_IK Up Vector (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Lleg (2)/IK Up Vector
+          (9)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Rleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Rleg/4th_RLeg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Rleg/4th_RLeg/Rknee
+          (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Rleg/4th_RLeg/Rknee
+          (2)/Skeleton_IK Up Vector (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/4TH_Rleg/IK Up Vector (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (10)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (10)/Skeleton_Joint
+          (11)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (10)/Skeleton_Joint
+          (11)/Skeleton_Joint (12)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (18)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (18)/Skeleton_Joint
+          (20)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (22)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint (2)/Skeleton_Joint
+          (3)/Skeleton_Joint (4)/Skeleton_Joint (5)/Skeleton_Joint (6)/Skeleton_Joint
+          (7)/Skeleton_Joint (8)/Skeleton_Joint (9)/Skeleton_Joint (22)/Skeleton_Joint
+          (21)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint_LLeg_Shoulder
+          4th
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_End/Skeleton_Joint_LLeg_Shoulder
+          4th (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Lleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Lleg/2nd Leg (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Lleg/2nd Leg (2)/Rknee
+          (6)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Lleg/2nd Leg (2)/Rknee
+          (6)/Skeleton_IK Up Vector
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Lleg/IK Up Vector (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Rleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Rleg/2nd Leg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Rleg/2nd Leg/Rknee (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Rleg/2nd Leg/Rknee (3)/Skeleton_IK
+          Up Vector (7)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/2nd_Rleg/IK Up Vector (5)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Lleg (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Lleg (2)/3rd_RLeg (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Lleg (2)/3rd_RLeg (2)/Rknee
+          (7)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Lleg (2)/3rd_RLeg (2)/Rknee
+          (7)/Skeleton_Skeleton_IK Up Vector_IKGoal
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Lleg (2)/IK Up Vector
+          (8)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Rleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Rleg/3rd_RLeg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Rleg/3rd_RLeg/Rknee
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Rleg/3rd_RLeg/Rknee/Skeleton_Skeleton_IK
+          Up Vector_IKGoal (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/3rd_Rleg/IK Up Vector
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/Skeleton_Joint_LLeg_Shoulder
+          2nd
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/Skeleton_Joint_LLeg_Shoulder
+          2nd (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/Skeleton_Joint_LLeg_Shoulder
+          3rd
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Mid/Skeleton_Joint_LLeg_Shoulder
+          3rd (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Leg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Leg/1st_Rleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Leg/1st_Rleg/Rknee
+          (4)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Leg/1st_Rleg/Rknee
+          (4)/Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (3)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Leg/IK Up Vector (6)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Lleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Lleg/1st_Lleg
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Lleg/1st_Lleg/Rknee
+          (5)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Lleg/1st_Lleg/Rknee
+          (5)/Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/1st Lleg/IK Up Vector
+          (4)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA/Joint_RMandibleB
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA/Joint_RMandibleB/Joint_RMandibleC
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA/Joint_RMandibleB/Joint_RMandibleC/Skeleton_Joint
+          (17)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA
+          (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA
+          (2)/Joint_RMandibleB (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA
+          (2)/Joint_RMandibleB (2)/Joint_RMandibleC (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/Joint_RMandibleA
+          (2)/Joint_RMandibleB (2)/Joint_RMandibleC (2)/Skeleton_Joint
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/topMouthjoint
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_Neck/Joint_Head/topMouthjoint/Skeleton_Joint
+          (15)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_RArm1_Shoulder
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_RArm1_Upper
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_RArm1_Upper/Joint_RArm1_Lower
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Joint_RArm1_Upper/Joint_RArm1_Lower/Skeleton_Joint
+          (19)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint (29)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint (29)/Skeleton_Joint
+          (30)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint (29)/Skeleton_Joint
+          (30)/Skeleton_Joint (31)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint_LARm
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint_LARm (2)
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint_LLeg_Shoulder
+          1st
+        weight: 1
+      - path: World_Control/Joint_FullBody/Joint_Body_Upper/Skeleton_Joint_LLeg_Shoulder
+          1st (2)
+        weight: 1
+      - path: World_Control/Skeleton_IK Up Vector (5)_IKGoal
+        weight: 1
+      - path: World_Control/Skeleton_IK Up Vector (5)_IKGoal (2)
+        weight: 1
+      - path: World_Control/Skeleton_IK Up Vector_IKGoal
+        weight: 1
+      - path: World_Control/Skeleton_IK Up Vector_IKGoal (2)
+        weight: 1
+      - path: World_Control/Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal
+        weight: 1
+      - path: World_Control/Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal (2)
+        weight: 1
+      - path: World_Control/Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal
+        weight: 1
+      - path: World_Control/Skeleton_Skeleton_Skeleton_IK Up Vector_IKGoal_IKGoal_IKGoal
+          (2)
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f3d2bb6bbea72434c86606962b7dc36a,
+    type: 3}
+  animationType: 2
+  userData: 
