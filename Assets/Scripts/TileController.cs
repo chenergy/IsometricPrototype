@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TileGenerator : MonoBehaviour
+public class TileController : MonoBehaviour
 {
 	public GameObject prefab;
 	public int xLength = 0;
@@ -11,19 +12,6 @@ public class TileGenerator : MonoBehaviour
 	private List<Vector3> tileLocations;
 	private List<Tile> tiles;
 
-
-	void OnEnable (){
-		foreach (TouchDrag td in FindObjectsOfType <TouchDrag>()) {
-			td.OnSelectNoneEvent += this.ClearTiles;
-		}
-	}
-
-
-	void OnDisable (){
-		foreach (TouchDrag td in FindObjectsOfType <TouchDrag>()) {
-			td.OnSelectNoneEvent -= this.ClearTiles;
-		}
-	}
 
 
 	// Use this for initialization
@@ -40,12 +28,7 @@ public class TileGenerator : MonoBehaviour
 
 		this.CreateTiles ();
 	}
-	
-	// Update is called once per frame
-	/*void Update ()
-	{
-	
-	}*/
+
 
 	private void CreateTiles (){
 		foreach (Vector3 pos in this.tileLocations) {
@@ -58,7 +41,7 @@ public class TileGenerator : MonoBehaviour
 
 
 	public void SelectTile (Tile tile){
-		this.ClearTiles ();
+		//this.ClearTiles ();
 
 		tile.SetSelected ();
 	}

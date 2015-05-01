@@ -5,7 +5,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour
 {
 	public Camera mainCamera;
-	public TouchListener touchListener;
+	public TouchDrag_Camera touchDrag;
 
 	[Range (0.0f, 1.0f)]
 	public float moveScaleX = 0.5f;
@@ -14,32 +14,21 @@ public class CameraController : MonoBehaviour
 	public float moveScaleY = 0.5f;
 
 	void OnEnable (){
-		if (touchListener != null)
-			touchListener.OnDragEvent += this.Move;
+		if (touchDrag != null)
+			touchDrag.OnDragEvent += this.Move;
 	}
 	
 	
 	void OnDisable (){
-		if (touchListener != null)
-			touchListener.OnDragEvent -= this.Move;
+		if (touchDrag != null)
+			touchDrag.OnDragEvent -= this.Move;
 	}
 
-	// Use this for initialization
-	/*void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}*/
 
-	public void Move (PointerEventData touchInfo){
+
+	public void Move (PointerEventData p, A_TouchDrag td){
 		float aspectRatio = Screen.width * 1.0f / Screen.height;
-		//Vector2 disp = touchInfo.CurScreenPoint - touchInfo.LastScreenPoint;
-		Vector2 disp = touchInfo.delta;
+		Vector2 disp = p.delta;
 		disp *= this.mainCamera.orthographicSize * 0.01f;
 
 		this.mainCamera.transform.localPosition += -disp.x * new Vector3 (1.0f, 0.0f, 0.0f) * this.moveScaleX * (1024.0f / Screen.width) * (aspectRatio / (16.0f / 9.0f));
