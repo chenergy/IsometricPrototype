@@ -46,8 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Building.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ConstructionController.cs" />
+     <Compile Include="Assets\Scripts\Helpers\IntVector2.cs" />
+     <Compile Include="Assets\Scripts\Helpers\TrigLookup.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileController.cs" />
      <Compile Include="Assets\Scripts\TouchDrag\A_TouchDrag.cs" />
