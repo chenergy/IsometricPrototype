@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+[RequireComponent (typeof(Collider))]
 public class Tile : MonoBehaviour {
 	public Renderer tileRenderer;
 	public Material selectedMat;

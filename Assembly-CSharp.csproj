@@ -49,13 +49,16 @@
      <Compile Include="Assets\Scripts\Building.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ConstructionController.cs" />
+     <Compile Include="Assets\Scripts\EventTriggerOverlay.cs" />
      <Compile Include="Assets\Scripts\Helpers\IntVector2.cs" />
+     <Compile Include="Assets\Scripts\Helpers\Rotate.cs" />
+     <Compile Include="Assets\Scripts\Helpers\SineLoop.cs" />
      <Compile Include="Assets\Scripts\Helpers\TrigLookup.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileController.cs" />
      <Compile Include="Assets\Scripts\TouchDrag\A_TouchDrag.cs" />
      <Compile Include="Assets\Scripts\TouchDrag\TouchDrag_Button.cs" />
-     <Compile Include="Assets\Scripts\TouchDrag\TouchDrag_Camera.cs" />
+     <Compile Include="Assets\Scripts\TouchDrag\TouchDrag_Select.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity5/Unity5.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

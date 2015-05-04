@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Building : MonoBehaviour
 {
 	public IntVector2[] localTiles;
+	
+	public List<Tile> usedTiles = new List<Tile> ();
+
 	// Use this for initialization
 	/*void Start ()
 	{
@@ -15,5 +19,9 @@ public class Building : MonoBehaviour
 	{
 	
 	}*/
+
+	public void AssignUsedTiles (List<Tile> tiles){
+		this.usedTiles = tiles;
+	}
 }
 

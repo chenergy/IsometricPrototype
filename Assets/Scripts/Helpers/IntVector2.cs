@@ -24,5 +24,28 @@ public struct IntVector2
 	{
 		return string.Format ("({0}, {1})", x, z);
 	}
+
+	public static IntVector2 operator +(IntVector2 v1, IntVector2 v2){
+		return new IntVector2 (v1.x + v2.x, v1.z + v2.z);
+	}
+
+	public override bool Equals (object obj)
+	{
+		// If parameter is null return false.
+		if (obj == null)
+		{
+			return false;
+		}
+		
+		// If parameter cannot be cast return false.
+		IntVector2 p = (IntVector2)obj;
+		if ((object)p == null)
+		{
+			return false;
+		}
+		
+		// Return true if the fields match:
+		return (x == p.x) && (z == p.z);
+	}
 }
 

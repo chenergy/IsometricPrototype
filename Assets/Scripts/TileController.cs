@@ -41,9 +41,9 @@ public class TileController : MonoBehaviour
 	}
 
 
-	/*public void SelectTile (Tile tile){
+	public void SelectTile (Tile tile){
 		tile.SetSelected ();
-	}*/
+	}
 
 
 	public void ClearTiles (){
@@ -53,6 +53,21 @@ public class TileController : MonoBehaviour
 	}
 
 
-	//public void SelectTiles (
+	public Tile GetTile (IntVector2 v){
+		if (this.locToTile.ContainsKey (v))
+			return this.locToTile [v];
+		return null;
+	}
+
+
+	public void SetTileInUse (IntVector2 v){
+		if (this.locToTile.ContainsKey (v))
+			this.locToTile [v].SetInUse (true);
+	}
+
+
+	public bool IsTileInUse (Tile t){
+		return t.InUse;
+	}
 }
 
