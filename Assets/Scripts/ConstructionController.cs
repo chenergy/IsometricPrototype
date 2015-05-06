@@ -14,6 +14,7 @@ public class ConstructionController : MonoBehaviour
 
 	private List <Building> placedBuildings = new List<Building> ();
 
+
 	void OnEnable (){
 		foreach (TouchDrag_Button td in FindObjectsOfType <TouchDrag_Button>()) {
 			td.OnPointerDownEvent += this.OnPointerDownEvent;

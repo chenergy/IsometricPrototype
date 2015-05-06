@@ -20,13 +20,12 @@ public class CameraController : MonoBehaviour
 		disp *= this.mainCamera.orthographicSize * 0.01f;
 
 		this.mainCamera.transform.localPosition += -disp.x * new Vector3 (1.0f, 0.0f, 0.0f) * this.moveScaleX * (1024.0f / Screen.width) * (aspectRatio / (16.0f / 9.0f));
-		//this.mainCamera.transform.position += -disp.y * new Vector3(this.transform.forward.x, 0.0f, this.transform.forward.z).normalized * this.moveScaleY * (575.0f / Screen.height);
 		this.transform.position += -disp.y * new Vector3(this.transform.forward.x, 0.0f, this.transform.forward.z).normalized * this.moveScaleY * (575.0f / Screen.height);
 	}
 
 
 	public void SetZoom (float zoom) {
-		this.mainCamera.orthographicSize = zoom * 10;
+		this.mainCamera.orthographicSize = Mathf.Lerp (10f, 1f, zoom);
 	}
 
 
