@@ -14,14 +14,17 @@ public class Tile : MonoBehaviour {
 	}
 
 
-	public void SetSelected (){
-		this.tileRenderer.material = selectedMat;
+	public void SetSelected (bool selected){
+		if (selected)
+			this.tileRenderer.material = selectedMat;
+		else
+			this.tileRenderer.material = unselectedMat;
 	}
 
 
-	public void SetUnselected (){
+	/*public void SetUnselected (){
 		this.tileRenderer.material = unselectedMat;
-	}
+	}*/
 
 
 	public void SetInUse (bool inUse){

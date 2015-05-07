@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
-
+[RequireComponent (typeof(EventTrigger))]
 public abstract class A_TouchDrag : MonoBehaviour
 { 
 	// Touch events that pass this object.
@@ -10,6 +10,13 @@ public abstract class A_TouchDrag : MonoBehaviour
 	public event TouchDragEvent OnPointerDownEvent;
 	public event TouchDragEvent OnPointerUpEvent;
 	public event TouchDragEvent OnDragEvent;
+
+	public EventTrigger eventTrigger;
+
+
+	void Awake (){
+		this.eventTrigger = this.GetComponent <EventTrigger> ();
+	}
 
 
 	// Show that the player is interacting by creating an image.

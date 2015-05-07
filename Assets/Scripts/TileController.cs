@@ -42,13 +42,18 @@ public class TileController : MonoBehaviour
 
 
 	public void SelectTile (Tile tile){
-		tile.SetSelected ();
+		tile.SetSelected (true);
+	}
+
+
+	public void DeselectTile (Tile tile){
+		tile.SetSelected (false);
 	}
 
 
 	public void ClearTiles (){
 		foreach (Tile t in this.locToTile.Values) {
-			t.SetUnselected ();
+			t.SetSelected (false);
 		}
 	}
 
