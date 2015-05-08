@@ -4,17 +4,16 @@ using System.Collections.Generic;
 
 public class Building : MonoBehaviour
 {
+	public string buildingName = "";
 	public IntVector2[] localTiles;
 
 	private Tile baseTile;
 	public Tile BaseTile {
 		get { return this.baseTile; }
 	}
+	
+	private Tile lastBaseTile = null;
 
-	/*private List<IntVector2> usedTiles = new List<IntVector2> ();
-	public List<IntVector2> UsedTiles {
-		get { return this.usedTiles; }
-	}*/
 	private IntVector2[] usedTileLocations;
 	public IntVector2[] UsedTileLocations {
 		get { return this.usedTileLocations; }
@@ -29,17 +28,6 @@ public class Building : MonoBehaviour
 		}
 	}
 
-	// Use this for initialization
-	/*void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}*/
 
 	public void SetBaseTile (Tile t){
 		this.baseTile = t;
@@ -49,8 +37,31 @@ public class Building : MonoBehaviour
 		}
 	}
 
-	/*public void SetUsedTiles (List<Tile> tiles){
-		this.usedTiles = tiles;
-	}*/
+
+	public void StartMove (){
+		if (this.GetComponent <Collider> () != null)
+			this.GetComponent <Collider> ().enabled = false;
+	}
+
+
+	public void PlaceDown (){
+		this.lastBaseTile = this.baseTile;
+
+		if (this.GetComponent <Collider> () != null)
+			this.GetComponent <Collider> ().enabled = true;
+	}
+
+
+	public void Reset (){
+		if (this.lastBaseTile != null) {
+			this.transform.position = this.lastBaseTile.transform.position;
+			this.baseTile = this.lastBaseTile;
+
+			if (this.GetComponent <Collider> () != null)
+				this.GetComponent <Collider> ().enabled = true;
+		} else {
+			GameObject.Destroy (this.gameObject);
+		}
+	}
 }
 

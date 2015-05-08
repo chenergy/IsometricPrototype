@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Building.cs" />
+     <Compile Include="Assets\Scripts\BuildingMenu.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\ConstructionController.cs" />
      <Compile Include="Assets\Scripts\EventTriggerOverlay.cs" />

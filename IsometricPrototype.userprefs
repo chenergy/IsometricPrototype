@@ -1,6 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ConstructionController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ConstructionController.cs" Line="265" Column="31" />
+      <File FileName="Assets/Scripts/Building.cs" Line="44" Column="2" />
+      <File FileName="Assets/Scripts/TouchDrag/TouchDrag_Button.cs" Line="4" Column="1" />
+      <File FileName="Assets/Scripts/TouchDrag/A_TouchDrag.cs" Line="18" Column="59" />
+      <File FileName="Assets/Scripts/TileController.cs" Line="64" Column="15" />
+      <File FileName="Assets/Scripts/Tile.cs" Line="27" Column="5" />
+      <File FileName="Assets/Scripts/EventTriggerOverlay.cs" Line="34" Column="35" />
+      <File FileName="Assets/Scripts/TouchDrag/TouchDrag_Select.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/Helpers/IntVector2.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BuildingMenu.cs" Line="12" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

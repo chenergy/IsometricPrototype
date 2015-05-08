@@ -9,7 +9,7 @@ public class EventTriggerOverlay : MonoBehaviour
 	public ConstructionController constructionCtrl;
 
 	private bool hasBeenDragged = false;
-	private Building targetBuilding;
+	//private Building targetBuilding;
 
 
 	void OnEnable (){
@@ -28,10 +28,13 @@ public class EventTriggerOverlay : MonoBehaviour
 
 	void OnPointerUpEvent (PointerEventData p, A_TouchDrag source){
 		if (!this.hasBeenDragged) {
-			if (this.RaycastHasHitBuilding (p)) {
-				this.constructionCtrl.SelectBuilding (this.targetBuilding);
+			Building b = this.RaycastHitBuilding (p);
+			if (b != null) {
+				//this.constructionCtrl.SelectBuilding (this.targetBuilding);
+				this.constructionCtrl.OnBuildingSelectEvent (b);
 			} else {
-				this.constructionCtrl.DeselectBuilding ();
+				//this.constructionCtrl.DeselectBuilding ();
+				this.constructionCtrl.OnBuildingDeselectEvent ();
 			}
 		}
 
@@ -52,7 +55,7 @@ public class EventTriggerOverlay : MonoBehaviour
 
 
 	// Cast a ray to the world at the current pointer location.
-	bool RaycastHasHitBuilding (PointerEventData p){
+	Building RaycastHitBuilding (PointerEventData p){
 		// Convert pointer screen point to ray.
 		Ray ray = Camera.main.ScreenPointToRay (p.position);
 		RaycastHit hit;
@@ -63,15 +66,18 @@ public class EventTriggerOverlay : MonoBehaviour
 				Building building = hit.collider.transform.GetComponent <Building>();
 				
 				if (building != null) {
-					this.targetBuilding = building;
-					return true;
+					//this.targetBuilding = building;
+					//return true;
+					return building;
 				}
 			}
 		}
 		
-		this.targetBuilding = null;
+		//this.targetBuilding = null;
 		
-		return false;
+		//return false;
+
+		return null;
 	}
 }
 

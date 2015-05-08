@@ -5,14 +5,19 @@ using System.Collections.Generic;
 
 public class ConstructionController : MonoBehaviour
 {
+	private enum ConstructionState {
+		SELECTING, PLACING, EDITING
+	}
+
 	public TileController tc;
 	public GameObject selector;
-	public GameObject buildingMenu;
+	public BuildingMenu buildingMenu;
 	public TouchDrag_Button[] constructionButtons;
 
-
+	private ConstructionState state = ConstructionState.SELECTING;
 	private Building selectedBuilding;
 	private List <Building> placedBuildings = new List<Building> ();
+
 
 
 
@@ -36,7 +41,7 @@ public class ConstructionController : MonoBehaviour
 
 	void Start (){
 		this.selector.SetActive (false);
-		this.buildingMenu.SetActive (false);
+		this.buildingMenu.Close ();
 	}
 
 
@@ -52,13 +57,14 @@ public class ConstructionController : MonoBehaviour
 			if (b != null) {
 				this.SelectBuilding (b);
 				b.SetBaseTile (this.tc.GetTile (new IntVector2 (0, 0)));
-				this.buildingMenu.SetActive (true);
+				b.StartMove ();
+				this.buildingMenu.Open (b);
 			}
 
 			// Disable Collider.
-			Collider c = objectToCreate.GetComponent <Collider> ();
+			/*Collider c = objectToCreate.GetComponent <Collider> ();
 			if (c != null)
-				c.enabled = false;
+				c.enabled = false;*/
 
 			// Disable all further construction, except for current button.
 			foreach (A_TouchDrag button in this.constructionButtons){
@@ -68,6 +74,9 @@ public class ConstructionController : MonoBehaviour
 
 			// Show which tiles are being used.
 			this.ShowUsedTiles();
+
+			// Set state to placing.
+			this.state = ConstructionState.PLACING;
 		}
 	}
 
@@ -96,7 +105,6 @@ public class ConstructionController : MonoBehaviour
 				this.selectedBuilding.SetBaseTile (targetTile);
 			
 				// Show selected tiles.
-				//this.ShowUsableTiles (this.selectedBuilding, targetTile);
 				this.ShowUsedTiles ();
 			}
 		}
@@ -113,17 +121,22 @@ public class ConstructionController : MonoBehaviour
 				tdb.eventTrigger.enabled = true;
 			}
 
-			// Add the placed buildings to the list.
-			this.placedBuildings.Add (this.selectedBuilding);
-			foreach (IntVector2 v in this.selectedBuilding.UsedTileLocations){
-				this.tc.SetTileInUse (v);
+			// Add the placed building to the list if necessary.
+			if (!this.placedBuildings.Contains (this.selectedBuilding)) {
+				this.placedBuildings.Add (this.selectedBuilding);
+				foreach (IntVector2 v in this.selectedBuilding.UsedTileLocations){
+					this.tc.SetTileInUse (v);
+				}
 			}
 
-			// Nullify selected building.
-			this.DeselectBuilding ();
+			// Save before reseting.
+			Building temp = this.selectedBuilding;
 
-			// Turn off building menu.
-			this.buildingMenu.SetActive (false);
+			// End click event.
+			this.EndClickEvent ();
+
+			// Reset object.
+			temp.PlaceDown ();
 		} else {
 			Debug.Log ("cannot place building in location");
 		}
@@ -139,17 +152,62 @@ public class ConstructionController : MonoBehaviour
 			tdb.eventTrigger.enabled = true;
 		}
 
-		// Save before destroying.
+		// Save before reseting.
 		Building temp = this.selectedBuilding;
 
+		// End click event.
+		this.EndClickEvent ();
+
+		// Reset object.
+		temp.Reset ();
+	}
+
+
+	void EndClickEvent (){
 		// Nullify selected building.
 		this.DeselectBuilding ();
-
-		// Destroy object.
-		Destroy (temp.gameObject);
-
+		
 		// Turn off building menu.
-		this.buildingMenu.SetActive (false);
+		this.buildingMenu.Close ();
+		
+		// Set state to selecting.
+		this.state = ConstructionState.SELECTING;
+	}
+
+
+	public void OnClickRemoveEvent (){
+
+	}
+
+
+	public void OnBuildingSelectEvent (Building b){
+		if (this.state == ConstructionState.SELECTING) {
+			this.SelectBuilding (b);
+		}
+	}
+
+
+	public void OnBuildingDeselectEvent (){
+		if (this.state == ConstructionState.SELECTING) {
+			this.DeselectBuilding ();
+		}
+	}
+
+
+	public void SelectBuilding (Building b) {
+		this.selectedBuilding = b;
+		this.buildingMenu.Open (b);
+		this.ShowUsedTiles ();
+		this.BindSelector (b);
+	}
+	
+	
+	
+	public void DeselectBuilding () {
+		this.selectedBuilding = null;
+		this.buildingMenu.Close ();
+		this.HideUsedTiles ();
+		this.ReleaseSelector ();
 	}
 
 
@@ -231,22 +289,16 @@ public class ConstructionController : MonoBehaviour
 		}
 	}
 
-
-
-	public void SelectBuilding (Building b) {
-		this.selectedBuilding = b;
-
+	
+	void BindSelector (Building b){
 		this.selector.transform.parent = b.transform;
 		this.selector.transform.localPosition = Vector3.up * 1.5f;
 		this.selector.SetActive (true);
 	}
-
-
-
-	public void DeselectBuilding () {
-		this.selectedBuilding = null;
-
-		this.selector.transform.parent = null;
+	
+	
+	void ReleaseSelector (){
+		this.selector.transform.parent = this.transform;
 		this.selector.SetActive (false);
 	}
 }
