@@ -6,28 +6,41 @@ public class BuildingMenu : MonoBehaviour
 {
 	public RectTransform parentMenu;
 	public Text buildingName;
-	/*public RectTransform placeButton;
-	public RectTransform cancelButton;
-	public RectTransform moveButton;
-	public RectTransform deleteButton;*/
+	
+	public GameObject selectingPanel;
+	public GameObject placingPanel;
+	public GameObject editingPanel;
 
 	private Building target;
-
-	// Use this for initialization
-	/*void Start ()
-	{
 	
-	}
 	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}*/
-
-	public void Open (Building b) {
+	public void Show (Building b, ConstructionState state) {
 		this.target = b;
 		this.buildingName.text = b.buildingName;
+		
+		switch (state) {
+			case ConstructionState.EDITING:
+				this.selectingPanel.SetActive (false);
+				this.placingPanel.SetActive (false);
+				this.editingPanel.SetActive (true);
+				break;
+			
+			case ConstructionState.PLACING:
+				this.selectingPanel.SetActive (false);
+				this.placingPanel.SetActive (true);
+				this.editingPanel.SetActive (false);
+				break;
+			
+			case ConstructionState.SELECTING:
+				this.selectingPanel.SetActive (true);
+				this.placingPanel.SetActive (false);
+				this.editingPanel.SetActive (false);
+				break;
+			
+			default:
+				break;
+		}
+		
 		this.parentMenu.gameObject.SetActive (true);
 	}
 

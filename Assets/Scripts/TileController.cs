@@ -65,9 +65,9 @@ public class TileController : MonoBehaviour
 	}
 
 
-	public void SetTileInUse (IntVector2 v){
+	public void SetTileInUse (IntVector2 v, bool value){
 		if (this.locToTile.ContainsKey (v))
-			this.locToTile [v].SetInUse (true);
+			this.locToTile [v].SetInUse (value);
 	}
 
 

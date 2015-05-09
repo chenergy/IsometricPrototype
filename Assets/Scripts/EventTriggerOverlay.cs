@@ -9,7 +9,7 @@ public class EventTriggerOverlay : MonoBehaviour
 	public ConstructionController constructionCtrl;
 
 	private bool hasBeenDragged = false;
-	//private Building targetBuilding;
+	private bool foundBuilding = false;
 
 
 	void OnEnable (){
@@ -26,31 +26,37 @@ public class EventTriggerOverlay : MonoBehaviour
 	}
 
 
-	void OnPointerUpEvent (PointerEventData p, A_TouchDrag source){
-		if (!this.hasBeenDragged) {
-			Building b = this.RaycastHitBuilding (p);
-			if (b != null) {
-				//this.constructionCtrl.SelectBuilding (this.targetBuilding);
-				this.constructionCtrl.OnBuildingSelectEvent (b);
-			} else {
-				//this.constructionCtrl.DeselectBuilding ();
-				this.constructionCtrl.OnBuildingDeselectEvent ();
-			}
-		}
-
-		this.hasBeenDragged = false;
-	}
-
-
 	void OnPointerDownEvent (PointerEventData p, A_TouchDrag source){
 		this.hasBeenDragged = false;
+		this.foundBuilding = false;
+		
+		if (this.RaycastHitBuilding (p) != null) { 
+			this.constructionCtrl.EventTrigger_OnPointerDownEvent (p);
+			this.foundBuilding = true;
+		}
+	}
+	
+	
+	void OnPointerUpEvent (PointerEventData p, A_TouchDrag source){
+		this.constructionCtrl.EventTrigger_OnPointerUpEvent (p, this.hasBeenDragged);
+		
+		this.hasBeenDragged = false;
+		this.foundBuilding = false;
 	}
 
 
 	void OnDragEvent (PointerEventData p, A_TouchDrag source){
 		this.hasBeenDragged = true;
-
-		this.cameraCtrl.Move (p);
+		
+		if (this.foundBuilding) {
+			if (this.constructionCtrl.State == ConstructionState.PLACING) {
+				this.constructionCtrl.EventTrigger_OnDragEvent (p);
+			} else {
+				this.cameraCtrl.Move (p);
+			}
+		} else {
+			this.cameraCtrl.Move (p);
+		}
 	}
 
 
@@ -65,18 +71,10 @@ public class EventTriggerOverlay : MonoBehaviour
 			if (hit.collider != null) {
 				Building building = hit.collider.transform.GetComponent <Building>();
 				
-				if (building != null) {
-					//this.targetBuilding = building;
-					//return true;
+				if (building != null) 
 					return building;
-				}
 			}
 		}
-		
-		//this.targetBuilding = null;
-		
-		//return false;
-
 		return null;
 	}
 }

@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
 
 
 	public void SetRotation (float r) {
-		this.transform.rotation = Quaternion.Euler (new Vector3 (30.0f, Mathf.Lerp (45.0f, 360.0f, r), 0.0f));
+		this.transform.rotation = Quaternion.Euler (new Vector3 (30.0f, Mathf.Lerp (45.0f, 404.0f, r), 0.0f));
 	}
 }
 

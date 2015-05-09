@@ -26,6 +26,9 @@ public class Building : MonoBehaviour
 		for (int i = 0; i < this.localTiles.Length; i++) {
 			this.usedTileLocations[i] = localTiles[i];
 		}
+		
+		if (this.GetComponent <Collider> () != null)
+			this.GetComponent <Collider> ().enabled = false;
 	}
 
 
@@ -35,12 +38,6 @@ public class Building : MonoBehaviour
 		for (int i = 0; i < this.localTiles.Length; i++) {
 			this.usedTileLocations[i] = t.location + localTiles[i];
 		}
-	}
-
-
-	public void StartMove (){
-		if (this.GetComponent <Collider> () != null)
-			this.GetComponent <Collider> ().enabled = false;
 	}
 
 
@@ -55,12 +52,12 @@ public class Building : MonoBehaviour
 	public void Reset (){
 		if (this.lastBaseTile != null) {
 			this.transform.position = this.lastBaseTile.transform.position;
-			this.baseTile = this.lastBaseTile;
+			this.SetBaseTile (this.lastBaseTile);
 
 			if (this.GetComponent <Collider> () != null)
 				this.GetComponent <Collider> ().enabled = true;
 		} else {
-			GameObject.Destroy (this.gameObject);
+			GameObject.DestroyImmediate (this.gameObject);
 		}
 	}
 }
