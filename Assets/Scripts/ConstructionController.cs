@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public enum ConstructionState {
-	SELECTING, PLACING, EDITING
+	SELECTING, PLACING, NO_SELECTION
 }
 
 public class ConstructionController : MonoBehaviour
@@ -138,24 +138,6 @@ public class ConstructionController : MonoBehaviour
 					this.DeselectBuilding ();
 			}
 		}
-		
-		/*
-		if (hasBeenDragged) {
-			// In placement mode, the selected building needs a collider to be selected again. 
-			if (this.state == ConstructionState.PLACING) {
-				this.EnableBuildingCollider (this.selectedBuilding);
-			}
-		} else {
-			// In selection mode, select a target building or deselect it.
-			if (this.state == ConstructionState.SELECTING) {
-				Building b = this.RaycastHitBuilding (p);
-				if (b != null) 
-					this.SelectBuilding (b);
-				else 
-					this.DeselectBuilding ();
-			}
-		}
-		*/
 	}
 	
 	
@@ -198,14 +180,15 @@ public class ConstructionController : MonoBehaviour
 	
 	
 	void CreateBuilding (GameObject prefab) {
-		// Instantiate object.
-		GameObject objectToCreate = GameObject.Instantiate (prefab, Vector3.zero, Quaternion.identity) as GameObject;
-		
-		// Create a new building from touchdrag data.
-		Building b = objectToCreate.GetComponent <Building> ();
-		if (b != null) {
+		if (prefab.GetComponent <Building>() != null) {
 			// Set state to placing.
 			this.state = ConstructionState.PLACING;
+			
+			// Instantiate object.
+			GameObject objectToCreate = GameObject.Instantiate (prefab, Vector3.zero, Quaternion.identity) as GameObject;
+		
+			// Create a new building from touchdrag data.
+			Building b = objectToCreate.GetComponent <Building> ();
 			
 			// Select new building and set base tile to (0, 0).
 			this.SelectBuilding (b);
@@ -295,6 +278,7 @@ public class ConstructionController : MonoBehaviour
 			// Add the placed building to the list if necessary.
 			if (!this.placedBuildings.Contains (b)) {
 				this.placedBuildings.Add (b);
+				Debug.Log ("created new building");
 			}
 			
 			// Set tiles as in-use.

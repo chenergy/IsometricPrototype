@@ -19,7 +19,7 @@ public class BuildingMenu : MonoBehaviour
 		this.buildingName.text = b.buildingName;
 		
 		switch (state) {
-			case ConstructionState.EDITING:
+			case ConstructionState.NO_SELECTION:
 				this.selectingPanel.SetActive (false);
 				this.placingPanel.SetActive (false);
 				this.editingPanel.SetActive (true);
