@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
+
+public enum ViewMode {
+	DECK_VIEW, MAP_VIEW
+}
+
 public class CameraController : MonoBehaviour
 {
-	public enum ViewMode {
-		DECK_VIEW, MAP_VIEW
-	}
-	
 	// Reference to main camera, child of this transform.
 	public Camera mainCamera;
 	
@@ -23,19 +24,29 @@ public class CameraController : MonoBehaviour
 	public float moveScaleY = 0.5f;
 	
 	// Reference to last zoom value to return to.
-	private float savedZoomValue = 1.0f;
+	private float savedZoomValue = 10.0f;
 	
 	// Check if currently zooming in or out.
 	private bool isZooming = false;
 	
 	// Check which view mode we are currently seeing.
 	private ViewMode viewMode = ViewMode.DECK_VIEW;
+	public ViewMode Mode {
+		get { return this.viewMode; }
+	}
 	
+	// Ship reference so it can be targeted.
+	private Ship ship;
 	
 	
 	void Start (){
-		this.btnDeckView.gameObject.SetActive (true);
-		this.btnMapView.gameObject.SetActive (false);
+		this.btnMapView.gameObject.SetActive (true);
+		this.btnDeckView.gameObject.SetActive (false);
+	}
+	
+	
+	public void Init (Ship ship){
+		this.ship = ship;
 	}
 	
 
@@ -64,17 +75,17 @@ public class CameraController : MonoBehaviour
 			switch (this.viewMode){
 			case ViewMode.DECK_VIEW:
 				this.viewMode = ViewMode.MAP_VIEW;		
-				this.btnDeckView.gameObject.SetActive (false);
-				this.btnMapView.gameObject.SetActive (true);
-				this.savedZoomValue = this.mainCamera.orthographicSize;
-				StartCoroutine ("ZoomToSize", 100.0f);
-				break;
-			case ViewMode.MAP_VIEW:
-				this.viewMode = ViewMode.DECK_VIEW;
 				this.btnDeckView.gameObject.SetActive (true);
 				this.btnMapView.gameObject.SetActive (false);
 				this.savedZoomValue = this.mainCamera.orthographicSize;
-				StartCoroutine ("ZoomToSize", 10.0f);
+				StartCoroutine ("ZoomToSize", 50.0f);
+				break;
+			case ViewMode.MAP_VIEW:
+				this.viewMode = ViewMode.DECK_VIEW;
+				this.btnDeckView.gameObject.SetActive (false);
+				this.btnMapView.gameObject.SetActive (true);
+				//this.savedZoomValue = this.mainCamera.orthographicSize;
+				StartCoroutine ("ZoomToSize", this.savedZoomValue);
 				break;
 			default:
 				break;
@@ -86,20 +97,21 @@ public class CameraController : MonoBehaviour
 	IEnumerator ZoomToSize (float zoom){
 		float timer = 0.0f;
 		float zoomTime = 1.0f;
+		float zoomValue = this.mainCamera.orthographicSize;
 		
 		this.isZooming = true;
 		
 		while (timer < zoomTime){
 			yield return new WaitForEndOfFrame ();
-			this.mainCamera.orthographicSize = Mathf.Lerp (this.savedZoomValue, zoom, timer / zoomTime);
+			this.mainCamera.orthographicSize = Mathf.Lerp (zoomValue, zoom, timer / zoomTime);
 			this.mainCamera.transform.localPosition = Vector3.Lerp (this.mainCamera.transform.localPosition, new Vector3 (0.0f, 0.0f, -zoom), timer / zoomTime);
-			this.transform.position = Vector3.Lerp (this.transform.position, Vector3.zero, timer / zoomTime);
+			this.transform.position = Vector3.Lerp (this.transform.position, this.ship.transform.position, timer / zoomTime);
 			timer += Time.deltaTime;
 		}
 		
 		this.mainCamera.orthographicSize = zoom;
 		this.mainCamera.transform.localPosition = new Vector3 (0.0f, 0.0f, -zoom);
-		this.transform.position = Vector3.zero;
+		this.transform.position = this.ship.transform.position;
 		
 		this.isZooming = false;
 	}

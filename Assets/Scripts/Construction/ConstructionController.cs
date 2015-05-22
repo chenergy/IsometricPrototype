@@ -9,7 +9,7 @@ public enum ConstructionState {
 
 public class ConstructionController : MonoBehaviour
 {
-	public TileController tc;
+	//public TileController tc;
 	public GameObject selector;
 	public BuildingMenu buildingMenu;
 	public TouchDrag_Button[] constructionButtons;
@@ -19,6 +19,7 @@ public class ConstructionController : MonoBehaviour
 		get { return this.state; }
 	}
 	
+	private TileController tc;
 	private Building selectedBuilding;
 	private List <Building> placedBuildings = new List<Building> ();
 
@@ -45,8 +46,14 @@ public class ConstructionController : MonoBehaviour
 		this.selector.SetActive (false);
 		this.buildingMenu.Close ();
 	}
-
-
+	
+	
+	public void Init (TileController tc)
+	{
+		this.tc = tc;
+	}
+	
+	
 	void TouchDrag_OnPointerDownEvent (PointerEventData p, A_TouchDrag td) {
 		if (this.state == ConstructionState.SELECTING) {
 			// Disable all further construction, except for current button.
@@ -218,6 +225,9 @@ public class ConstructionController : MonoBehaviour
 		
 		// Show used tiles.
 		this.ShowAllUsedTiles ();
+		
+		// Lift the building.
+		b.LiftUp ();
 		
 		// Show the placing building menu.
 		this.buildingMenu.Show (b, this.state);

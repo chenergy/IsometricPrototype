@@ -7,7 +7,10 @@ public class EventTriggerOverlay : MonoBehaviour
 	public TouchDrag_Select touch;
 	public CameraController cameraCtrl;
 	public ConstructionController constructionCtrl;
-
+	public NavigationController navigationCtrl;
+	
+	//private Ship ship;
+	
 	private bool hasBeenDragged = false;
 	private bool foundBuilding = false;
 
@@ -24,15 +27,30 @@ public class EventTriggerOverlay : MonoBehaviour
 		touch.OnPointerDownEvent -= this.OnPointerDownEvent;
 		touch.OnDragEvent -= this.OnDragEvent;
 	}
+	
+	
+	/*public void Init (Ship ship){
+		this.ship = ship;
+	}*/
 
 
 	void OnPointerDownEvent (PointerEventData p, A_TouchDrag source){
 		this.hasBeenDragged = false;
 		this.foundBuilding = false;
 		
-		if (this.RaycastHitBuilding (p) != null) { 
-			this.constructionCtrl.EventTrigger_OnPointerDownEvent (p);
-			this.foundBuilding = true;
+		// Convert pointer screen point to ray.
+		Ray ray = Camera.main.ScreenPointToRay (p.position);
+		RaycastHit hit;
+		
+		if (Physics.Raycast (ray, out hit, 1000)) {
+			if (this.RaycastHitBuilding (hit)) {
+				Building building = hit.collider.transform.GetComponent <Building>(); 
+				this.constructionCtrl.EventTrigger_OnPointerDownEvent (p);
+				this.foundBuilding = true;
+			} else if (this.RaycastHitGround (hit)){
+				if (this.cameraCtrl.Mode != ViewMode.DECK_VIEW)
+					this.navigationCtrl.MoveShip (hit.point);
+			}
 		}
 	}
 	
@@ -60,22 +78,25 @@ public class EventTriggerOverlay : MonoBehaviour
 	}
 
 
-	// Cast a ray to the world at the current pointer location.
-	Building RaycastHitBuilding (PointerEventData p){
-		// Convert pointer screen point to ray.
-		Ray ray = Camera.main.ScreenPointToRay (p.position);
-		RaycastHit hit;
-		
-		// Check raycast collision with a tile component.
-		if (Physics.Raycast (ray, out hit, 100)) {
-			if (hit.collider != null) {
-				Building building = hit.collider.transform.GetComponent <Building>();
-				
-				if (building != null) 
-					return building;
-			}
+	// Check if building was hit by raycast.
+	bool RaycastHitBuilding (RaycastHit hit){
+		// Check raycast collision with a building component.
+		if (hit.collider != null) {
+			if (hit.collider.transform.GetComponent <Building>() != null) 
+				return true;
 		}
-		return null;
+		return false;
+	}
+	
+	
+	// Check if the ground was hit by raycast.
+	bool RaycastHitGround (RaycastHit hit){
+		// Check raycast collision with a ground component.
+		if (hit.collider != null) {
+			if (hit.collider.transform.GetComponent <Ground>() != null) 
+				return true;
+		}
+		return false;
 	}
 }
 

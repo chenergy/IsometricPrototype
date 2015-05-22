@@ -34,6 +34,7 @@ public class TileController : MonoBehaviour
 			GameObject newGobj = GameObject.Instantiate (prefab, pos, Quaternion.identity) as GameObject;
 			Tile t = newGobj.GetComponent <Tile> ();
 			t.transform.parent = this.transform;
+			t.transform.localPosition = pos;
 			t.name = ipos.ToString ();
 			t.location = ipos;
 			this.locToTile.Add (ipos, t);

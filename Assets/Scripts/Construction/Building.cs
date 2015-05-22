@@ -39,10 +39,17 @@ public class Building : MonoBehaviour
 			this.usedTileLocations[i] = t.location + localTiles[i];
 		}
 	}
-
+	
+	
+	public void LiftUp (){
+		this.transform.parent = null;
+	}
+	
 
 	public void PlaceDown (){
 		this.lastBaseTile = this.baseTile;
+		
+		this.transform.parent = this.baseTile.transform;
 
 		if (this.GetComponent <Collider> () != null)
 			this.GetComponent <Collider> ().enabled = true;
@@ -52,6 +59,8 @@ public class Building : MonoBehaviour
 	public void Reset (){
 		if (this.lastBaseTile != null) {
 			this.transform.position = this.lastBaseTile.transform.position;
+			this.transform.parent = this.lastBaseTile.transform;
+			
 			this.SetBaseTile (this.lastBaseTile);
 
 			if (this.GetComponent <Collider> () != null)
