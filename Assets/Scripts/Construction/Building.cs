@@ -35,6 +35,9 @@ public class Building : MonoBehaviour
 	public void SetBaseTile (Tile t){
 		this.baseTile = t;
 
+		this.transform.rotation = t.transform.rotation;
+		this.transform.position = t.transform.position;
+
 		for (int i = 0; i < this.localTiles.Length; i++) {
 			this.usedTileLocations[i] = t.location + localTiles[i];
 		}

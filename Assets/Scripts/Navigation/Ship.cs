@@ -1,13 +1,35 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(Rigidbody))]
 public class Ship : MonoBehaviour
 {
 	public TileController tc;
 	public float speed = 1.0f;
-	
-	
-	
+
+	private Rigidbody rigidbody;
+	private Vector3 moveDir = Vector3.zero;
+
+	void Start (){
+		this.rigidbody = this.GetComponent <Rigidbody> ();
+	}
+
+	void Update (){
+		if (this.moveDir != Vector3.zero) {
+			//this.rigidbody.AddRelativeForce
+		}
+	}
+
+	void OnDrawGizmos (){
+		Gizmos.DrawLine (this.transform.position, this.transform.position + this.transform.forward * 10);
+	}
+
+
+	public void MoveInDirection (Vector3 dir){
+		
+	}
+
+
 	public void MoveTo (Vector3 pos){
 		StopCoroutine ("MoveToRoutine");
 		StopCoroutine ("RotateToRoutine");

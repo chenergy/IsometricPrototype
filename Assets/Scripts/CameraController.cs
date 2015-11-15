@@ -12,7 +12,10 @@ public class CameraController : MonoBehaviour
 {
 	// Reference to main camera, child of this transform.
 	public Camera mainCamera;
-	
+
+	// Reference to construction controller, checking state.
+	public ConstructionController cc;
+
 	// Buttons controlling different views of the ship.
 	public Button btnMapView;
 	public Button btnDeckView;
@@ -43,8 +46,8 @@ public class CameraController : MonoBehaviour
 		this.btnMapView.gameObject.SetActive (true);
 		this.btnDeckView.gameObject.SetActive (false);
 	}
-	
-	
+
+
 	public void Init (Ship ship){
 		this.ship = ship;
 	}
@@ -74,11 +77,20 @@ public class CameraController : MonoBehaviour
 		if (!this.isZooming) {			
 			switch (this.viewMode){
 			case ViewMode.DECK_VIEW:
-				this.viewMode = ViewMode.MAP_VIEW;		
-				this.btnDeckView.gameObject.SetActive (true);
-				this.btnMapView.gameObject.SetActive (false);
-				this.savedZoomValue = this.mainCamera.orthographicSize;
-				StartCoroutine ("ZoomToSize", 50.0f);
+				if (this.cc.State == ConstructionState.NO_SELECTION ||
+				    this.cc.State == ConstructionState.SELECTING) {
+					if (this.cc.State == ConstructionState.SELECTING)
+						// Automatically cancel the selection.
+						this.cc.Selecting_OnClickCancelEvent ();
+					
+					this.viewMode = ViewMode.MAP_VIEW;		
+					this.btnDeckView.gameObject.SetActive (true);
+					this.btnMapView.gameObject.SetActive (false);
+					this.savedZoomValue = this.mainCamera.orthographicSize;
+					StartCoroutine ("ZoomToSize", 50.0f);
+				} else {
+					Debug.Log ("cannot exit building state");
+				}
 				break;
 			case ViewMode.MAP_VIEW:
 				this.viewMode = ViewMode.DECK_VIEW;

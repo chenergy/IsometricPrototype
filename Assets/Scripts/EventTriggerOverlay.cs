@@ -48,8 +48,9 @@ public class EventTriggerOverlay : MonoBehaviour
 				this.constructionCtrl.EventTrigger_OnPointerDownEvent (p);
 				this.foundBuilding = true;
 			} else if (this.RaycastHitGround (hit)){
-				if (this.cameraCtrl.Mode != ViewMode.DECK_VIEW)
-					this.navigationCtrl.MoveShip (hit.point);
+				if (this.cameraCtrl.Mode != ViewMode.DECK_VIEW) {
+					//this.navigationCtrl.MoveShip (hit.point);
+				}
 			}
 		}
 	}
